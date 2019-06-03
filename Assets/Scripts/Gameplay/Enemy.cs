@@ -119,6 +119,7 @@ public class Enemy : MonoBehaviour, IHitPoints
     public void Hit()
     {
         // TODO Add explisions
-        if (hp-- <= 0) Destroy(root);
+        if (--hp <= 0)
+            Destroy(root);
     }
 }

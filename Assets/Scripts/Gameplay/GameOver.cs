@@ -18,6 +18,8 @@ public class GameOver : MonoBehaviour
 
     private void Update()
     {
+        if (Victory.instance.visible) visible = false;
+
         gameOverScreen.transform.localScale = Vector3.Lerp(gameOverScreen.transform.localScale, visible ? Vector3.one : Vector3.zero, speed * Time.unscaledDeltaTime);
 
         gameOverScreen.SetActive(gameOverScreen.transform.localScale.x > 0.01f);
