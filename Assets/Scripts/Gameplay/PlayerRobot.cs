@@ -50,6 +50,8 @@ public class PlayerRobot : MonoBehaviour, IHitPoints
 
     private void Update()
     {
+        if (MainMenu.instance.visible || GameOver.instance.visible) return;
+
         if (activated || main)
         {
             Move();
@@ -128,6 +130,10 @@ public class PlayerRobot : MonoBehaviour, IHitPoints
         if (--hp <= 0)
         {
             ActionProgressIndicator.HideFor(transform);
+
+            if (main)
+                GameOver.instance.visible = true;
+
             Destroy(gameObject);
         }
     }

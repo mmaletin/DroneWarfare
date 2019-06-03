@@ -54,6 +54,7 @@ public class ActionProgressIndicator : MonoBehaviour
             else
             {
                 indicator = Instantiate(instance, instance.transform.parent);
+                indicator.transform.SetSiblingIndex(instance.transform.GetSiblingIndex());
             }
 
             activeIndicators.Add(target, indicator);
